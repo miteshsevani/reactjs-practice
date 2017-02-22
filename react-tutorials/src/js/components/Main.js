@@ -21,14 +21,19 @@ export default class Main extends React.Component {
 		 })
 	}
 
+	_changeSubTitle(subTitle) {
+		this.setState({ subTitle });
+	}
+
 	render() {	
 		return (
 			<div>
 				<Header 
 				changeTitle={this._changeTitle.bind(this)} 
 				title={this.state.title} 
-				subTitle={this.state.subTitle} />
-				<Nav />
+				subTitle={this.state.subTitle} 
+				changeSubTitle={this._changeSubTitle.bind(this)}
+				/>
 				<Footer />
 			</div>
 		);
