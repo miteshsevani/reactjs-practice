@@ -13,6 +13,7 @@ export default class Subtitle extends React.Component {
 				<h2>{this.props.subTitle}</h2>
 				<input 
 				name="subtitle" 
+				value={this.props.subTitle}
 				onChange={this._handleChangeSubTitle.bind(this)} 
 				/>
 			</div>
