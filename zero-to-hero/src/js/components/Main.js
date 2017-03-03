@@ -1,7 +1,12 @@
 import React from "react";
+import Nav from "./Nav.js"
 
-export default class Main extends React.Component {
+export default class Main extends React.Component {	
 	render() {
-		return(<h1>Hello Mitesh</h1>);
+		return(
+			<div>
+				<Nav />				
+			</div>
+		);
 	}
 }
