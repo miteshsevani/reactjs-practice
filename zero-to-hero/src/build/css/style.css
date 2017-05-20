@@ -1,0 +1,60 @@
+* {
+  margin: 0px auto;
+}
+
+body {
+  background: #ffd3a8;
+  font-family: "Verdana", "Geneva", "sans-serif";
+}
+
+header {
+  text-align: center;
+}
+
+.col {
+  float: left;
+  width: 100%;
+  padding:0px 15px 15px;
+  margin: 5px;
+}
+
+@media screen and (min-width: 620px) {
+  .col {
+    width: 29%;
+  }
+}
+
+.column-1 {
+  background:#ffb8a8;
+}
+
+.column-2 {
+  background:#a8caff;
+}
+
+.column-3 {
+  background:#8ec181;
+}
+
+table {
+  text-align: left;
+  border:1px solid black;
+  border-collapse: collapse;
+  max-width: 100%; 
+}
+
+tr, th, td {
+  border:1px solid black;
+}
+
+th, td {
+  padding:5px;
+}
+
+footer {
+  clear: both;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  width: 100%;
+}
