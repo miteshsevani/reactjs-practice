@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import Activity from "./Activity";
+import Content from "./Content";
 
 export default class UserTimeline extends React.Component {
 
@@ -38,7 +38,7 @@ export default class UserTimeline extends React.Component {
         return(
             <div>
                 <Header />
-                <Activity activities={data} />
+                <Content activities={data} />
             </div>
         );
     }

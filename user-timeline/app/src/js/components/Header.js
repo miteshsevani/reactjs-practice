@@ -1,14 +1,15 @@
 import React from "react";
-import Title from "./title";
-
+import Title from "./Title";
+import Search from "./Search";
 export default class Header extends React.Component {
     render() {
         return(
             <header>                
                 <i className="fa fa-bars"></i>
-                <h1><Title title="Timeline" /></h1>
-                <input type="text" name="search" placeholder="Search" />
-                <i className="fa fa-search"></i>
+                <div className="title">
+                    <h1><Title title="Timeline" /></h1>
+                </div>
+                <Search />
             </header>
         );
     }
