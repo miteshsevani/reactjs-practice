@@ -22,6 +22,12 @@ export default class ActivityItem extends React.Component {
                 <div className="comments">
                     <i className="fa fa-comment"></i>
                     <span>{activity.comments.length}</span>
+                    {activity.comments.map((comment) => 
+                        <div key={comment.id} className="comment">
+                            <p className="from">{comment.from}</p>
+                            <p className="text">{comment.text}</p>
+                        </div>
+                    )}
                 </div>                
             </div>
         );

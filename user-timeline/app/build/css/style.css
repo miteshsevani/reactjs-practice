@@ -2,10 +2,18 @@
 * {
     margin: 0 auto;
 }
+
 body {
     font-family: Arial, Helvetica, sans-serif;    
-    color: #2F4F4F;
+    color: #2F4F4F;    
+}
 
+.clock {
+    width:100%;
+    color: #fff;
+    background:#6A5ACD;
+    padding:15px;
+    text-align: center;
 }
 
 header {
@@ -13,9 +21,9 @@ header {
     color: #fff;
     float: left;
     width: 100%;
-    
+    padding: 10px;
+    position: relative;
 }
-
 
 .fa-bars {
     float: left;
@@ -30,8 +38,14 @@ header {
 
 .search {
     position: absolute;
-    right:0px;
-    top:10px;
+    right:15px;
+    top:15px;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
 }
 
 .fa {
@@ -74,6 +88,23 @@ header {
     color: #696969;
 }
 
-.comments {
+.comments {    
     
+}
+
+.comment {
+    margin:20px;
+    background: #F0FFFF;
+    background:#FFEFD5;
+    padding: 10px;
+    width:350px;
+}
+
+.comments .from {
+    color:#BBBBBB;
+    font-style: italic;
+}
+
+.comments .text {
+    margin: 10px;    
 }

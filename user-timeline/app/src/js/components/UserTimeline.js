@@ -1,4 +1,5 @@
 import React from "react";
+import Clock from "./Clock";
 import Header from "./Header";
 import Content from "./Content";
 
@@ -15,8 +16,8 @@ export default class UserTimeline extends React.Component {
                 },
                 post: "Just had lunch",
                 comments: [
-                    {from: "Ari",text: "Me too!"},
-                    {from: "Greg",text: "Yum!"},
+                    {id:1, from: "Ari",text: "Me too!"},
+                    {id:2, from: "Greg",text: "Yum!"},
                 ]
             },
             {
@@ -28,15 +29,16 @@ export default class UserTimeline extends React.Component {
                 },
                 post: "Time for work",
                 comments: [
-                    {from: "Tom",text: "Boring..."},
-                    {from: "Liz",text: "Where do you work?"},
-                    {from: "Liz",text: "When do you finish"},
+                    {id:1, from: "Tom",text: "Boring..."},
+                    {id:2, from: "Liz",text: "Where do you work?"},
+                    {id:3, from: "Liz",text: "When do you finish"},
                 ]
             },
         ];
 
         return(
             <div>
+                <Clock />
                 <Header />
                 <Content activities={data} />
             </div>
