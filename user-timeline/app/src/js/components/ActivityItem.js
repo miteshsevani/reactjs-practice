@@ -15,7 +15,8 @@ export default class ActivityItem extends React.Component {
                 </div>
 
                 <div className="description">
-                    <p className="time">{activity.time}</p>    
+                    
+                    <p className="fa fa-clock-o time"> {activity.time} </p>    
                     <p className="post">{activity.post}</p>    
                 </div>
                 

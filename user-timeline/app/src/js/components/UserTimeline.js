@@ -8,7 +8,7 @@ export default class UserTimeline extends React.Component {
     render() {
         const data = [
             {
-                time: new Date().getTime(),
+                time: new Date().toLocaleString(),
                 user: {
                     id: 1,
                     name: "Doug",
