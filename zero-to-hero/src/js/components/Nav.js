@@ -5,25 +5,20 @@ export default class Nav extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			"title": "Main Nav",
 			"navigation": [
 				{
-					"id":"1",
 					"text":"Home",
 					"link":"#home"
 				},
 				{
-					"id":"2",
 					"text":"About",
 					"link":"#about"
 				},
 				{
-					"id":"3",
 					"text":"Apply",
 					"link":"#apply"
 				},
 				{
-					"id":"4",
 					"text":"Contact",
 					"link":"#contact"
 				}
@@ -33,25 +28,33 @@ export default class Nav extends React.Component {
 
 	getNav() {		
 		return(
-			<span>
-				{this.state.navigation.map(nav => {
+			<ul className="nav navbar-nav">
+				{this.state.navigation.map((nav,key) => {
 					return (
-						<li key={nav.id}><a href={nav.link}>{nav.text}</a></li>
+						<li key={key}><a href={nav.link}>{nav.text}</a></li>
 					);
 				})}
-			</span>
+			</ul>
 		)
-		
 	}
 
 	render() {
 		return(
 			<div>
-				<h3>{this.state.title}</h3>
-				<nav>
-					<ul>
-						{this.getNav()}
-					</ul>
+				<nav className="navbar navbar-inverse">
+					<div className="container-fluid">
+						<div className="navbar-header">
+							<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+								<span className="sr-only">Toggle navigation</span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+								<span className="icon-bar"></span>
+							</button>
+						</div>
+						<div id="navbar" className="navbar-collapse collapse">
+							{this.getNav()}
+						</div>
+					</div>
 				</nav>
 			</div>
 		);

@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #ffd3a8;
+  
   font-family: "Verdana", "Geneva", "sans-serif";
 }
 
@@ -11,18 +11,6 @@ header {
   text-align: center;
 }
 
-.col {
-  float: left;
-  width: 100%;
-  padding:0px 15px 15px;
-  margin: 5px;
-}
-
-@media screen and (min-width: 620px) {
-  .col {
-    width: 29%;
-  }
-}
 
 .column-1 {
   background:#ffb8a8;
