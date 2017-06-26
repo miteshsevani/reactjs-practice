@@ -6,12 +6,24 @@ export default class GreetingForm extends React.Component{
     
     onFormSubmit(e) {
         e.preventDefault();
-        const nameRef = this.refs.name;        
-        if(nameRef.value.length > 0) {
-            this.props.onNewName(nameRef.value)
-            nameRef.value = "";
-        } else {
-            alert("Please enter a name")
+        
+        let updates = {};
+        let name = this.refs.name.value;
+        let message = this.refs.message.value;
+
+        if(name.length > 0) {            
+            updates.name = name;
+            this.refs.name.value = '';
+        }
+
+        if(message.length > 0) {            
+            updates.message = message;
+            this.refs.message.value = '';
+        }
+        
+        
+        if(Object.keys(updates).length > 0) {
+            this.props.onUpdate(updates)
         }
     }
 
@@ -19,8 +31,9 @@ export default class GreetingForm extends React.Component{
         return(
             <div>
                 <form onSubmit={this.onFormSubmit.bind(this)}>
-                    <input type="text" ref="name" placeholder="Enter your name"/>
-                    <button>Submit</button>
+                    <div><input type="text" ref="name" placeholder="Enter your name"/></div>
+                    <div><textarea ref="message" placeholder="Enter message"></textarea></div>
+                    <div><button>Submit</button></div>
                 </form>
             </div>
         )
