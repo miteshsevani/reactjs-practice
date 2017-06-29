@@ -14,13 +14,13 @@ export default class Weather extends React.Component{
         let that = this;        
         this.setState({ isLoading: true });
 
-        openWeatherMap.getTemp(city).then(function(temp) {
+        openWeatherMap.getTemp(city).then((temp) => {
             that.setState({
                 city: city,
                 temp: temp,
                 isLoading: false
             })
-        }, function(errorMessage) {
+        }, (errorMessage) => {
             that.setState({ isLoading: false });
             alert(errorMessage);
         });
@@ -29,7 +29,7 @@ export default class Weather extends React.Component{
     render() {
         const {isLoading, temp, city } = this.state;
 
-        function renderMessage() {
+        var renderMessage = () => {
             if(isLoading) {
                 return <h3>Fetching Weather...</h3>;
             } else if (temp, city) {

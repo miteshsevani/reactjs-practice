@@ -8,28 +8,13 @@
 	<div id="app"></div>	
 	<script src="bundle.js"></script>
 	<!--script>
-		function addPromise(a,b) {
-			return new Promise(function(resolve,reject) {
-				if(typeof a === "number" && typeof b==="number") {
-					resolve(a + b);
-				} else {
-					reject("Not a number");
-				}
-			})
+		var addExpression = (a,b) =>  a + b;
+		console.log(addExpression(7,3));
+
+		var addStatement = (a,b) => {
+			return a + b;
 		}
-
-		addPromise(2,6).then(function(answer) {
-			console.log("Answer: ", answer);
-		}, function(err) {
-			console.log("Error: ", err);
-		})
-
-		addPromise("s","f").then(function(answer) {
-			console.log("Answer: ", answer);
-		}, function(err) {
-			console.log("Error: ", err);
-		})
-
+		console.log(addStatement(1,6));
 	</script-->
 </body>
 </html>
