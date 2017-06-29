@@ -2,9 +2,10 @@ import React from "react";
 
 export default class WeatherWeatherResultForm extends React.Component{
     render() {
+        const { temp, city } = this.props;
         return(
             <div>
-                <p>The weather in {this.props.city} today is {this.props.temperature}*C</p>
+                <h3>It is {temp}°C in {city}</h3>
             </div>
         )
     }
