@@ -7,13 +7,16 @@ import Weather from "./components/Weather";
 import About from "./components/About";
 import Examples from "./components/Examples";
 
+require("style-loader!css-loader!foundation-sites/dist/css/foundation.min.css");
+$(document).foundation();
+
 ReactDOM.render(    
     <BrowserRouter>
       <div>
         <Nav />                
         <Route exact path="/" component={Weather} />
         <Route path="/about" component={About} />
-        <Route path="/examples" component={Examples} />
+        <Route path="/examples" component={Examples} />        
       </div>
     </BrowserRouter>,
     document.getElementById("app")

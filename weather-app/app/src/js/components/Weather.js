@@ -2,6 +2,7 @@ import React from "react";
 import WeatherForm from "./WeatherForm";
 import WeatherResult from "./WeatherResult";
 import openWeatherMap from "../data/openWeatherMap";
+import Error from "./Error";
 
 export default class Weather extends React.Component{
     constructor(props) {
@@ -18,30 +19,46 @@ export default class Weather extends React.Component{
             that.setState({
                 city: city,
                 temp: temp,
-                isLoading: false
+                isLoading: false,
+                errorMessage: undefined
             })
         }, (errorMessage) => {
-            that.setState({ isLoading: false });
-            alert(errorMessage);
+            that.setState({ 
+                isLoading: false,
+                errorMessage: errorMessage.message
+            });            
         });
     }
 
     render() {
-        const {isLoading, temp, city } = this.state;
+        const {isLoading, temp, city, errorMessage } = this.state;
 
         var renderMessage = () => {
             if(isLoading) {
-                return <h3>Fetching Weather...</h3>;
+                return <h3 className="text-center">Fetching Weather...</h3>;
             } else if (temp, city) {
                 return <WeatherResult temp={temp} city={city} />;
             }
         }
 
-        return(
-            <div>
-                <h1>Get Weather</h1>
-                <WeatherForm getWeather={this.getWeather.bind(this)} />
-                {renderMessage()}
+        var renderError = () => {
+            if (typeof errorMessage === 'string') {
+                return(
+                    <Error />
+                )
+            }
+        }
+
+        return(            
+            <div className="grid-container">
+                <div className="grid-x align-center">
+                    <div className="cell small-6 large-4">
+                        <h1 className="text-center">Weather</h1>
+                        <WeatherForm getWeather={this.getWeather.bind(this)} />
+                        {renderMessage()}
+                        {renderError()}
+                    </div>
+                </div>
             </div>
         )
     }

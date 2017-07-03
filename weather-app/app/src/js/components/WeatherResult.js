@@ -3,7 +3,7 @@ import React from "react";
 const WeatherWeatherResultForm = ({temp, city}) => {
     return(
         <div>
-            <h3>It is {temp}°C in {city}</h3>
+            <h3 className="text-center">It is {temp}°C in {city}</h3>
         </div>
     )
 }

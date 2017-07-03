@@ -1,10 +1,19 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Examples = (props) => {
     return(
-        <div>
-            <h2>Examples</h2>
-            <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada.</p>
+        <div className="grid-container grid-container-padded">
+                <div className="grid-x grid-padding-x">
+                    <div className="cell small-12 large-6">
+                        <h2>Examples</h2>
+                        <ol>
+                            <li><Link to="/?city=London">London</Link></li>
+                            <li><Link to="/?city=Manchester">Manchester</Link></li>
+                            <li><Link to="/?city=Birmingham">Birmingham</Link></li>
+                        </ol>
+                    </div>
+                </div>
         </div>
     )
 }

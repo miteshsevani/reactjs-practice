@@ -5,7 +5,14 @@ var path = require('path');
 module.exports = {
   context: path.join(__dirname, "app"),
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./src/js/App.js",
+  entry: [
+    "script-loader!jquery/dist/jquery.min.js",
+    "script-loader!foundation-sites/dist/js/foundation.min.js",
+    "./src/js/App.js"
+  ],
+  externals: {
+    jQuery: "jQuery"
+  },
   module: {
     loaders: [
       {
@@ -26,5 +33,9 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+    new webpack.ProvidePlugin({
+      "$": "jquery",
+      "jQuery": "jquery"
+    })
   ],
 };
