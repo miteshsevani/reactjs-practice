@@ -4,7 +4,7 @@ const data = require("../../data/sample-data.js");
 
 export default class InboxPane extends React.Component {
     
-    renderInboxItem(person,order) {
+    renderInboxItem(person) {
         return(
             <InboxItem key={person} index={person} details={this.props.humans[person]} />
         )
@@ -12,11 +12,11 @@ export default class InboxPane extends React.Component {
 
     render () {
         const person = this.props.humans;
-        const order = this.props.orders;
 
         return (
             <div>
                 <h3>Inbox</h3>
+                <br />
                 <table>
                     <thead>
                         <tr>
@@ -26,11 +26,11 @@ export default class InboxPane extends React.Component {
                             <th>Price</th>
                             <th>Time</th>
                             <th>Address</th>
-                            <th>Status</th>
+                            <th>Status</th>                            
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(person,order).map(this.renderInboxItem.bind(this))}
+                        {Object.keys(person).map(this.renderInboxItem.bind(this))}
                     </tbody>
                 </table>                
                 

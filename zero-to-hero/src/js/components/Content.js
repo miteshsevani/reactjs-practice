@@ -5,8 +5,7 @@ export default class Content extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            humans: {},
-            stores: {}
+            humans: {}
         }
     }
 
@@ -18,15 +17,15 @@ export default class Content extends React.Component {
         return(
             <div className="container">
                 <div className="row">
-                    <div className="col-sm-8 column-1">
+                    <div className="col-sm-12 column-1">
                         <InboxPane humans={this.state.humans} />
-                        <br /><button onClick={this.loadSampleData.bind(this)}>Load Data</button><br />
+                        <br /><button className="btn btn-default" onClick={this.loadSampleData.bind(this)}>Load Orders</button><br /><br />
                     </div>
-                    <div className="col-sm-2 column-2">
-
-                    </div>
-                    <div className="col-sm-2 column-3">
-
+                </div>
+                
+                <div className="row">
+                    <div className="col-sm-12 column-3">
+                        
                     </div>
                 </div>
             </div>
