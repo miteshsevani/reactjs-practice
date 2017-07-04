@@ -3,17 +3,24 @@ import WeatherForm from "./WeatherForm";
 import WeatherResult from "./WeatherResult";
 import openWeatherMap from "../data/openWeatherMap";
 import Error from "./Error";
+import queryString from "query-string";
 
 export default class Weather extends React.Component{
     constructor(props) {
         super(props);
         this.state = {            
-            isLoading: false
+            isLoading: false                        
         }
     }
+    
     getWeather(city) {
         let that = this;        
-        this.setState({ isLoading: true });
+        this.setState({ 
+            isLoading: true,
+            errorMessage: undefined,
+            city: undefined,
+            temp: undefined
+        });
 
         openWeatherMap.getTemp(city).then((temp) => {
             that.setState({
@@ -30,6 +37,13 @@ export default class Weather extends React.Component{
         });
     }
 
+    componentDidMount() {        
+        let city = queryString.parse(location.search).city;
+        if(city && city.length > 0) {
+            this.getWeather(city);            
+        }
+    }
+
     render() {
         const {isLoading, temp, city, errorMessage } = this.state;
 
@@ -44,7 +58,7 @@ export default class Weather extends React.Component{
         var renderError = () => {
             if (typeof errorMessage === 'string') {
                 return(
-                    <Error />
+                    <Error eMessage={errorMessage} />
                 )
             }
         }
@@ -53,7 +67,7 @@ export default class Weather extends React.Component{
             <div className="grid-container">
                 <div className="grid-x align-center">
                     <div className="cell small-6 large-4">
-                        <h1 className="text-center">Weather</h1>
+                        <h1 className="text-center page-title">Weather</h1>
                         <WeatherForm getWeather={this.getWeather.bind(this)} />
                         {renderMessage()}
                         {renderError()}
