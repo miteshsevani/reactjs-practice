@@ -1,0 +1,22 @@
+body {
+    .page-title {
+        margin: 2.5rem 0rem;
+    }
+
+    .top-bar {
+        padding:0px;
+        .menu {
+            a {
+                &:hover {
+                    color: #000;
+                }
+                
+                &.active {
+                    color: #fff;
+                    font-weight: bold;
+                    background: #1779ba;
+                }
+            }
+        }
+    }
+}
