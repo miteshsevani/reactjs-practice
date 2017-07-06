@@ -8,7 +8,7 @@ const Main = (props) => {
     return(
         <BrowserRouter>
             <div>
-                <Nav />                
+                <Nav />
                 <Route exact path="/" component={Timer} />
                 <Route path="/countdown" component={Countdown} />            
             </div>

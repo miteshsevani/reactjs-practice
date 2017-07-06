@@ -1,0 +1,22 @@
+.top-bar, .top-bar ul {
+    background: $nav-bg;    
+    .menu {
+        a {            
+            &:hover {
+                color: $nav-text-color;
+            }
+            
+            &.active {                
+                font-weight: bold;
+                border-bottom: 3px solid $blue;
+            }
+        }
+        .menu-text {
+            color: $nav-text-color;
+            a {
+                display: inline;
+                padding-left:5px;
+            }
+        }
+    }
+}
