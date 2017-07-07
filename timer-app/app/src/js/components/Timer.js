@@ -17,7 +17,7 @@ export default class Timer extends React.Component{
             })
         }, 1000)
     }
-
+    
     render() {
         return(
             <div className="grid-container">
