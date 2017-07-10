@@ -13,10 +13,16 @@ export default class CountdownForm extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.onSubmit.bind(this)} ref="form" className="countdown-form">
-                <input type="text" ref="seconds" placeholder="Enter seconds" />
-                <button className="button expanded">Start</button>
-            </form>
+            <div className="grid-container">
+                <div className="grid-x grid-padding-x align-center text-center">
+                    <div className="cell small-5">    
+                        <form onSubmit={this.onSubmit.bind(this)} ref="form" className="countdown-form">
+                            <input type="text" ref="seconds" placeholder="Enter seconds" />
+                            <button className="button">Start</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

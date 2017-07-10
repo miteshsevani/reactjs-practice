@@ -2,8 +2,14 @@
 @import "navigation";
 
 body {
-    .page-title {
-        margin: 2.5rem 0rem;
+    .top-bar {
+        margin-bottom: 2em;
+    }
+    .clock {
+        background:lighten(lightsteelblue,12%);
+        border: 1px solid $blue;
+        border-radius: 50px;
+        margin:1em;
     }
 
     .button {

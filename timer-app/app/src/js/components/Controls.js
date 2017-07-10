@@ -6,11 +6,7 @@ export default class Controls extends React.Component {
             this.props.onStatusChange(newStatus)
         }
     }
-
-    componentWillReceiveProps(newProps) {
-        console.log("Component will receive props", newProps.countdownStatus);
-    }
-
+    
     render() {        
         const {countdownStatus} = this.props;
         const renderStartStopButton = () => {

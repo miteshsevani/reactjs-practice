@@ -17,8 +17,16 @@ export default class Clock extends React.Component {
 
     render() {
         const {time} = this.props;
-        return(
-            <h1>{this.toHHMMSS(time)}</h1>
+        return(            
+            <div className="grid-container">
+                <div className="grid-x grid-padding-x align-center text-center">
+                    <div className="cell small-8 large-6">    
+                        <div className="clock">
+                            <h1>{this.toHHMMSS(time)}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 }
