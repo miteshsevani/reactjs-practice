@@ -6,18 +6,37 @@ export default class Timer extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            time: 0
+            time: 0,
+            buttonStatus: "stopped"
         }
     }
 
     handleClick() { 
-        setInterval( () => {
+        if(this.state.buttonStatus === "stopped") {
+            this.timer = setInterval( () => {
+                this.setState({
+                    time: this.state.time+1,
+                    buttonStatus: "started"
+                })
+            }, 1000)
+        } else if (this.state.buttonStatus === "started") {
+            clearInterval(this.timer);
             this.setState({
-                time: this.state.time+1
+                buttonStatus: "stopped"
             })
-        }, 1000)
+        } else if (this.state.buttonStatus === "cleared") {
+            clearInterval(this.timer);
+            this.setState({
+                time: 0,
+                buttonStatus: "stopped"
+            })
+        }
     }
     
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
     render() {
         return(
             <div className="grid-container">
@@ -25,7 +44,7 @@ export default class Timer extends React.Component{
                     <div className="cell small-8 large-6">
                         <h2 className="page-title">Timer</h2>
                         <Clock time={this.state.time} />
-                        <TimerButton start={this.handleClick.bind(this)}/>
+                        <TimerButton start={this.handleClick.bind(this)} status={this.state.buttonStatus} />
                     </div>
                 </div>
             </div>
