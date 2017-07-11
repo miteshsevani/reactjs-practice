@@ -4,6 +4,8 @@ export default class CountdownForm extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         let strSeconds = this.refs.seconds.value;
+
+        console.log("Total input = ",$('input').length);
         
         if(strSeconds.match(/^[0-9]*$/)) {
             this.refs.seconds.value = "";
