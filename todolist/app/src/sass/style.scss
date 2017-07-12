@@ -1,0 +1,18 @@
+@import "variables";
+@import "navigation";
+
+body {
+    .top-bar {
+        margin-bottom: 2em;
+    }
+    .clock {
+        background:lighten(lightsteelblue,12%);
+        border: 1px solid $blue;
+        border-radius: 50px;
+        margin:1em;
+    }
+
+    .button {
+        margin: 0.2rem;
+    }
+}
