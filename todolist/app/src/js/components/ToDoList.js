@@ -1,13 +1,26 @@
 import React from "react";
+import { Grid, Row, Col } from 'react-bootstrap';
+import ToDo from "./ToDo";
+export default class ToDoList extends React.Component{
+    render() {
+        const {todos} = this.props;
 
-const ToDoList = (props) => {
-    return(
-        <ul>
-            {props.items.map((item, key) => (
-                <li key={key}>{item} <a href="">remove</a></li>
-            ))}          
-        </ul>
-    )
+        const renderTodos = () => {
+            return(
+                todos.map((todo, key) => (                    
+                    <ToDo key={key} {...todo} />
+                ))
+            )
+        }
+
+        return(
+            <Grid>
+                <Row>
+                    <Col sm={6}>
+                        {renderTodos()}
+                    </Col>
+                </Row>
+            </Grid>
+        )
+    }
 }
-
-module.exports = ToDoList;

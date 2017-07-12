@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Main from "./components/Main";
+import ToDoApp from "./components/ToDoApp";
 
 require('../sass/style.scss');
 
 ReactDOM.render(    
-    <Main />,
+    <ToDoApp />,
     document.getElementById("app")
 );
