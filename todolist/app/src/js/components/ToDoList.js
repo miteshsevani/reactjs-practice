@@ -16,7 +16,7 @@ export default class ToDoList extends React.Component{
         return(
             <Grid>
                 <Row>
-                    <Col sm={6}>
+                    <Col sm={8}>
                         {renderTodos()}
                     </Col>
                 </Row>

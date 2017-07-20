@@ -1,44 +1,56 @@
 import React from "react";
+import uuid from "node-uuid";
 import AddToDoForm from "./AddToDoForm";
 import ToDoList from "./ToDoList";
+import TodoSearch from "./TodoSearch";
 
 export default class Main extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            showCompleted: false,
             todos: [
                 {
-                    id: 1,
+                    id: uuid(),
                     text:'Shopping',
                 },
                 {
-                    id: 2,
+                    id: uuid(),
                     text:'Wash car'
                 },
                 {
-                    id: 3,
+                    id: uuid(),
                     text:'Complete assignment'
                 }
             ]
         }
     }
 
+    handleSearch(showCompleted, searchText) {
+        console.log(showCompleted);
+        this.setState({
+            showCompleted:showCompleted,
+            searchText:searchText.toLowerCase()
+        })
+    }
 
     handleAddTodo(todo) {
-        const newToDo = {
-            id: this.state.todos.length+1,
-            text: todo
-        }
-        
         this.setState({            
-            todos: this.state.todos.concat([newToDo])
+            todos: [
+                ...this.state.todos,
+                {
+                    id: uuid(),
+                    text: todo
+                }
+            ]
         })
     }
 
     render() {
         const {todos} = this.state
         return(
-            <div>                
+            <div>
+                <TodoSearch onSearch={this.handleSearch.bind(this)} />
                 <ToDoList todos={todos} />
                 <AddToDoForm onAddTodo={this.handleAddTodo.bind(this)} />
             </div>
