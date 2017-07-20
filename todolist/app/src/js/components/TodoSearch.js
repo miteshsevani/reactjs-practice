@@ -12,7 +12,7 @@ export default class TodoSearch extends React.Component {
         return(
             <Grid>
                 <Row>
-                    <Col sm={6}>            
+                    <Col sm={8} smOffset={3}>
                         <div>
                             <input type="search" ref="searchText" placeholder="Search todos" onChange={this.handleSearch.bind(this)} />
                         </div>

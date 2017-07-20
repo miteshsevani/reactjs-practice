@@ -18,7 +18,7 @@ export default class AddToDoForm extends React.Component {
         return(
             <Grid>
                 <Row>
-                    <Col sm={6}>
+                    <Col sm={8} smOffset={3}>
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <input type="text" ref="todoItem" placeholder="Add to do item" />                
                             <button className="btn btn-primary">Add todo</button>

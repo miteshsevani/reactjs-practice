@@ -2,17 +2,13 @@
 @import "navigation";
 
 body {
-    .top-bar {
-        margin-bottom: 2em;
-    }
-    .clock {
-        background:lighten(lightsteelblue,12%);
-        border: 1px solid $blue;
-        border-radius: 50px;
-        margin:1em;
+    .container {
+        max-width: 1120px;
+        padding: 20px;
+        margin: 0 auto;        
     }
 
-    .button {
-        margin: 0.2rem;
+    input {
+        margin: 10px;
     }
 }
