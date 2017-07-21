@@ -15,17 +15,11 @@ export default class AddToDoForm extends React.Component {
     }
 
     render() {
-        return(
-            <Grid>
-                <Row>
-                    <Col sm={8} smOffset={3}>
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <input type="text" ref="todoItem" placeholder="Add to do item" />                
-                            <button className="btn btn-primary">Add todo</button>
-                        </form>
-                    </Col>
-                </Row>
-            </Grid>
+        return(            
+            <form onSubmit={this.handleSubmit.bind(this)}>
+                <input type="text" ref="todoItem" placeholder="Add to do item" />                
+                <button className="btn btn-primary">Add todo</button>
+            </form>
         )
     }
 }

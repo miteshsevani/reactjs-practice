@@ -10,21 +10,17 @@ export default class TodoSearch extends React.Component {
 
     render() {
         return(
-            <Grid>
-                <Row>
-                    <Col sm={8} smOffset={3}>
-                        <div>
-                            <input type="search" ref="searchText" placeholder="Search todos" onChange={this.handleSearch.bind(this)} />
-                        </div>
-                        <div>
-                            <label>
-                                <input type="checkbox" ref="showCompleted" onChange={this.handleSearch.bind(this)} />
-                                Show completed todos
-                            </label>
-                        </div>
-                    </Col>
-                </Row>
-            </Grid>
+            <div>
+                <div>
+                    <input type="search" ref="searchText" placeholder="Search todos" onChange={this.handleSearch.bind(this)} />
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" ref="showCompleted" onChange={this.handleSearch.bind(this)} />
+                        Show completed todos
+                    </label>
+                </div>
+            </div>
         )
     }
 }

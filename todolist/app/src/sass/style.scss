@@ -2,13 +2,75 @@
 @import "navigation";
 
 body {
+    margin-top: 2rem;
     .container {
         max-width: 1120px;
         padding: 20px;
-        margin: 0 auto;        
-    }
+        margin: 0 auto;
+        background: $light-grey;
+        border: 1px solid $light-grey-border;
+        margin-bottom: 2rem;
 
-    input {
-        margin: 10px;
+        h2 {
+            text-align: center;
+        }
+
+        .message {
+            color: green;
+            margin: 2rem auto;
+        }
+
+        .todo-item {
+            border-bottom: 1px solid $light-grey-border;
+            padding:2rem;
+            cursor: pointer;
+
+            &:last-child {
+                border: none;
+            }
+
+            &:hover{
+                background: darken($light-grey,10%);
+            }
+
+            p {
+                &.todo-text {
+                    display: inline-flex;
+                    font-size: 16px;
+                }
+
+                &.time {
+                    font-style: italic;
+                    color: $grey;
+                }
+            }
+
+            &.completed {
+                background: darken($light-grey,3%);
+                p.todo-text {
+                    text-decoration: line-through;
+                }
+            }
+
+            
+        }
+
+        
+        input:not([type="checkbox"]) {
+            width: 100%;
+            border:none;
+            margin: 1rem 0rem;
+            padding:0.5rem;
+            border: 1px solid $light-grey-border;
+        }
+
+        input[type="checkbox"] {
+            display: inline-flex;
+            margin:1em 0.5em 1em 0em;
+        }
+        
+        button {
+            width: 100%;
+        }        
     }
 }

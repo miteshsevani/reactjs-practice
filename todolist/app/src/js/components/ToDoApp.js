@@ -1,5 +1,8 @@
 import React from "react";
 import uuid from "node-uuid";
+import moment from "moment";
+import { Grid, Row, Col } from 'react-bootstrap';
+
 import TodosAPI from "../../api/TodosAPI";
 import AddToDoForm from "./AddToDoForm";
 import ToDoList from "./ToDoList";
@@ -33,7 +36,9 @@ export default class Main extends React.Component{
                 {
                     id: uuid(),
                     text: todo,
-                    completed: false
+                    completed: false,
+                    createdTime:moment().unix(),
+                    completedTime:undefined
                 }
             ]
         })
@@ -43,6 +48,7 @@ export default class Main extends React.Component{
         const updatedTodos = this.state.todos.map((todo) => {
             if(todo.id === id) {
                 todo.completed = !todo.completed;
+                todo.completedTime = moment().unix();
             }
             return todo;
         })
@@ -53,13 +59,20 @@ export default class Main extends React.Component{
     }
 
     render() {
-        const {todos} = this.state
+        const { todos, showCompleted, searchText } = this.state;
+        let filteredTodos = TodosAPI.filterTodos(todos, showCompleted, searchText);
+        
         return(
-            <div>
-                <TodoSearch onSearch={this.handleSearch.bind(this)} />
-                <ToDoList todos={todos} onToggle={this.handleToggle.bind(this) }/>
-                <AddToDoForm onAddTodo={this.handleAddTodo.bind(this)} />
-            </div>
+            <Grid>
+                <Row>
+                    <Col sm={10} smOffset={1}>
+                        <h2>Todo App</h2>
+                        <TodoSearch onSearch={this.handleSearch.bind(this)} />
+                        <ToDoList todos={filteredTodos} onToggle={this.handleToggle.bind(this) }/>
+                        <AddToDoForm onAddTodo={this.handleAddTodo.bind(this)} />
+                    </Col>
+                </Row>
+            </Grid>
         )
     }
 }

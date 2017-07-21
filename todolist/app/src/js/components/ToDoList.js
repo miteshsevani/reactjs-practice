@@ -6,21 +6,21 @@ export default class ToDoList extends React.Component{
         const {todos, onToggle} = this.props;
 
         const renderTodos = () => {
-            return(
-                todos.map((todo, key) => (                    
-                    <ToDo key={key} {...todo} onToggle={onToggle} />
-                ))
-            )
+            if(todos.length > 0) {
+                return(
+                    todos.map((todo, key) => (                    
+                        <ToDo key={key} {...todo} onToggle={onToggle} />
+                    ))
+                )
+            } else {
+                return <h4 className="message">Todo list is empty</h4>;
+            }
         }
 
         return(
-            <Grid>
-                <Row>
-                    <Col sm={8} smOffset={3}>
-                        {renderTodos()}
-                    </Col>
-                </Row>
-            </Grid>
+            <div>
+                {renderTodos()}                    
+            </div>
         )
     }
 }
