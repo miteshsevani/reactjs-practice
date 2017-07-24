@@ -19,13 +19,27 @@ const reducer = (state = stateDefault, action) => {
     }
 };
 
-const store = redux.createStore(reducer);
+const store = redux.createStore(reducer, redux.compose(
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+));
 
-console.log(store.getState());
+// subscribe to changes
+store.subscribe(() => {
+    const todo = store.getState();
+    document.getElementById('app').innerHTML = todo.searchText;
+})
 
 store.dispatch({
     type: 'CHANGE_SEARCHTEXT',
     searchText: 'work'
 });
 
-console.log(store.getState());
+store.dispatch({
+    type: 'CHANGE_SEARCHTEXT',
+    searchText: 'assignment'
+});
+
+store.dispatch({
+    type: 'CHANGE_SEARCHTEXT',
+    searchText: 'something else'
+});
