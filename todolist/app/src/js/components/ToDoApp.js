@@ -44,20 +44,6 @@ export default class Main extends React.Component{
         })
     }
 
-    handleToggle(id) {
-        const updatedTodos = this.state.todos.map((todo) => {
-            if(todo.id === id) {
-                todo.completed = !todo.completed;
-                todo.completedTime = moment().unix();
-            }
-            return todo;
-        })
-
-        this.setState({
-            todos: updatedTodos
-        })
-    }
-
     render() {
         const { todos, showCompleted, searchText } = this.state;
         let filteredTodos = TodosAPI.filterTodos(todos, showCompleted, searchText);
@@ -68,7 +54,7 @@ export default class Main extends React.Component{
                     <Col sm={10} smOffset={1}>
                         <h2>Todo App</h2>
                         <TodoSearch onSearch={this.handleSearch.bind(this)} />
-                        <ToDoList todos={filteredTodos} onToggle={this.handleToggle.bind(this) }/>
+                        <ToDoList />
                         <AddToDoForm onAddTodo={this.handleAddTodo.bind(this)} />
                     </Col>
                 </Row>

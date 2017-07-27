@@ -1,15 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import { Grid, Row, Col } from 'react-bootstrap';
 import ToDo from "./ToDo";
-export default class ToDoList extends React.Component{
+
+const ToDoList = React.createClass({
     render() {
-        const {todos, onToggle} = this.props;
+        const { todos } = this.props;
 
         const renderTodos = () => {
             if(todos.length > 0) {
                 return(
                     todos.map((todo, key) => (                    
-                        <ToDo key={key} {...todo} onToggle={onToggle} />
+                        <ToDo key={key} {...todo} />
                     ))
                 )
             } else {
@@ -23,4 +26,12 @@ export default class ToDoList extends React.Component{
             </div>
         )
     }
-}
+});
+
+module.exports = connect(
+    (state) => {
+        return {
+            todos: state.todos
+        };
+    }
+)(ToDoList);
